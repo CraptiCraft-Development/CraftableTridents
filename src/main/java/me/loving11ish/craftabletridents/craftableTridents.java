@@ -6,11 +6,14 @@ import org.bukkit.ChatColor;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.logging.Logger;
+
 public final class craftableTridents extends JavaPlugin {
 
     public static craftableTridents plugin;
     private PluginDescriptionFile pluginInfo = getDescription();
     private String pluginVersion = pluginInfo.getVersion();
+    Logger logger = this.getLogger();
 
     @Override
     public void onEnable() {
@@ -18,21 +21,21 @@ public final class craftableTridents extends JavaPlugin {
         if (!(Bukkit.getServer().getVersion().contains("1.13")||Bukkit.getServer().getVersion().contains("1.14")||
                 Bukkit.getServer().getVersion().contains("1.15")||Bukkit.getServer().getVersion().contains("1.16")||
                 Bukkit.getServer().getVersion().contains("1.17"))){
-            System.out.println(ChatColor.RED + "-------------------------------------------");
-            System.out.println(ChatColor.RED + "CraftableTridents - This plugin is only supported on the Minecraft versions listed below:");
-            System.out.println(ChatColor.RED + "CraftableTridents - 1.13.x");
-            System.out.println(ChatColor.RED + "CraftableTridents - 1.14.x");
-            System.out.println(ChatColor.RED + "CraftableTridents - 1.15.x");
-            System.out.println(ChatColor.RED + "CraftableTridents - 1.16.x");
-            System.out.println(ChatColor.RED + "CraftableTridents - 1.17.x");
-            System.out.println(ChatColor.RED + "CraftableTridents - Is now disabling!");
-            System.out.println(ChatColor.RED + "-------------------------------------------");
+            logger.warning(ChatColor.RED + "-------------------------------------------");
+            logger.warning(ChatColor.RED + "CraftableTridents - This plugin is only supported on the Minecraft versions listed below:");
+            logger.warning(ChatColor.RED + "CraftableTridents - 1.13.x");
+            logger.warning(ChatColor.RED + "CraftableTridents - 1.14.x");
+            logger.warning(ChatColor.RED + "CraftableTridents - 1.15.x");
+            logger.warning(ChatColor.RED + "CraftableTridents - 1.16.x");
+            logger.warning(ChatColor.RED + "CraftableTridents - 1.17.x");
+            logger.warning(ChatColor.RED + "CraftableTridents - Is now disabling!");
+            logger.warning(ChatColor.RED + "-------------------------------------------");
             Bukkit.getPluginManager().disablePlugin(this);
         }else {
-            System.out.println(ChatColor.GREEN + "-------------------------------------------");
-            System.out.println(ChatColor.GREEN + "CraftableTridents - A supported Minecraft version has been detected");
-            System.out.println(ChatColor.GREEN + "CraftableTridents - Continuing plugin startup");
-            System.out.println(ChatColor.GREEN + "-------------------------------------------");
+            logger.info(ChatColor.GREEN + "-------------------------------------------");
+            logger.info(ChatColor.GREEN + "CraftableTridents - A supported Minecraft version has been detected");
+            logger.info(ChatColor.GREEN + "CraftableTridents - Continuing plugin startup");
+            logger.info(ChatColor.GREEN + "-------------------------------------------");
         }
 
         // Plugin startup logic
@@ -42,11 +45,11 @@ public final class craftableTridents extends JavaPlugin {
         recipe.enchantedRecipe();
 
         //Plugin startup message
-        System.out.println("-------------------------------------------");
-        System.out.println(ChatColor.AQUA + "CraftableTridents - Plugin By Loving11ish");
-        System.out.println(ChatColor.AQUA + "CraftableTridents - has been loaded successfully!");
-        System.out.println(ChatColor.AQUA + "CraftableTridents - Plugin Version " + pluginVersion);
-        System.out.println("-------------------------------------------");
+        logger.info("-------------------------------------------");
+        logger.info(ChatColor.AQUA + "CraftableTridents - Plugin By Loving11ish");
+        logger.info(ChatColor.AQUA + "CraftableTridents - has been loaded successfully!");
+        logger.info(ChatColor.AQUA + "CraftableTridents - Plugin Version " + pluginVersion);
+        logger.info("-------------------------------------------");
     }
 
     @Override
@@ -55,10 +58,10 @@ public final class craftableTridents extends JavaPlugin {
         Bukkit.clearRecipes();
 
         //Plugin shutdown message
-        System.out.println("-------------------------------------------");
-        System.out.println(ChatColor.AQUA + "CraftableTridents - Plugin By Loving11ish");
-        System.out.println(ChatColor.AQUA + "CraftableTridents - has been disabled successfully!");
-        System.out.println("-------------------------------------------");
+        logger.info("-------------------------------------------");
+        logger.info(ChatColor.AQUA + "CraftableTridents - Plugin By Loving11ish");
+        logger.info(ChatColor.AQUA + "CraftableTridents - has been disabled successfully!");
+        logger.info("-------------------------------------------");
     }
 
     public static craftableTridents getPlugin() {
