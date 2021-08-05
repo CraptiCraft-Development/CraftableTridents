@@ -1,0 +1,6 @@
+name: craftableTridents
+version: ${project.version}
+main: me.loving11ish.craftabletridents.craftableTridents
+api-version: 1.13
+authors: [ Loving11ish ]
+description: Add a custom recipe to your server to craft tridents.
