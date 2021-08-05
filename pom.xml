@@ -13,7 +13,7 @@
 
     <description>Add a custom recipe to your server to craft tridents.</description>
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>1.11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
