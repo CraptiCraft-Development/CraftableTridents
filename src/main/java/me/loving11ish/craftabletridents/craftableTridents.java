@@ -30,7 +30,7 @@ public final class craftableTridents extends JavaPlugin {
             logger.warning(ChatColor.RED + "CraftableTridents - 1.17.x");
             logger.warning(ChatColor.RED + "CraftableTridents - Is now disabling!");
             logger.warning(ChatColor.RED + "-------------------------------------------");
-            Bukkit.getPluginManager().disablePlugin(this);
+            Bukkit.getPluginManager().disablePlugin(plugin);
         }else {
             logger.info(ChatColor.GREEN + "-------------------------------------------");
             logger.info(ChatColor.GREEN + "CraftableTridents - A supported Minecraft version has been detected");
