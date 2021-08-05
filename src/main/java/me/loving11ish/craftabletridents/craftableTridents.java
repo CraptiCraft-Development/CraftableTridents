@@ -38,7 +38,8 @@ public final class craftableTridents extends JavaPlugin {
         // Plugin startup logic
         plugin = this;
         tridentRecipe recipe = new tridentRecipe();
-        recipe.Recipe();
+        recipe.unEnchantedRecipe();
+        recipe.enchantedRecipe();
 
         //Plugin startup message
         System.out.println("-------------------------------------------");
