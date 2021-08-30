@@ -5,4 +5,5 @@ If you answered yes to the above, then this is the plugin for you! CraftableTrid
 Once the plugins is installed, all players will instantly have access to the TWO crafting recipes for tridents!
 
 This is the code for my plugin, you are allowed to view, download and modify my code for your own purposes, however redistribution of my code is forbidden.
+
 Any issues, please just contact me via my discord https://discord.gg/n2NBkRC
