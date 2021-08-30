@@ -1,14 +1,16 @@
 package me.loving11ish.craftabletridents.Recipies;
 
+import me.loving11ish.craftabletridents.Utils.ColorUtils;
 import me.loving11ish.craftabletridents.craftableTridents;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
+
+import java.util.ArrayList;
 
 public class tridentRecipe {
 
@@ -27,10 +29,18 @@ public class tridentRecipe {
 
         ItemStack enchanted_trident = new ItemStack(Material.TRIDENT, 1);
         ItemMeta meta = enchanted_trident.getItemMeta();
-        meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.ITALIC + "Poseidon's Staff");
-        meta.addEnchant(Enchantment.CHANNELING, 1, false);
-        meta.addEnchant(Enchantment.DURABILITY, 3, false);
-        meta.addEnchant(Enchantment.MENDING, 1, false);
+        meta.setDisplayName(ColorUtils.translateColorCodes(craftableTridents.getPlugin().getConfig().getString("OP-trident-name")));
+        ArrayList<String> lore = new ArrayList<>();
+        lore.add(ColorUtils.translateColorCodes(craftableTridents.getPlugin().getConfig().getString("Lore-1")));
+        lore.add(ColorUtils.translateColorCodes(craftableTridents.getPlugin().getConfig().getString("Lore-2")));
+        lore.add(ColorUtils.translateColorCodes(craftableTridents.getPlugin().getConfig().getString("Lore-3")));
+        lore.add(ColorUtils.translateColorCodes(craftableTridents.getPlugin().getConfig().getString("Lore-4")));
+        meta.setLore(lore);
+        if (craftableTridents.getPlugin().getConfig().getBoolean("Enable-OP-trident-enchants")){
+            meta.addEnchant(Enchantment.CHANNELING, 1, false);
+            meta.addEnchant(Enchantment.DURABILITY, 3, false);
+            meta.addEnchant(Enchantment.MENDING, 1, false);
+        }
         enchanted_trident.setItemMeta(meta);
 
         ShapedRecipe craftEnchantedTrident = new ShapedRecipe(key, enchanted_trident);

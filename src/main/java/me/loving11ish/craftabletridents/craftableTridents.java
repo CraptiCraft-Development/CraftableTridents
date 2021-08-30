@@ -1,6 +1,9 @@
 package me.loving11ish.craftabletridents;
 
 import me.loving11ish.craftabletridents.Recipies.tridentRecipe;
+import me.loving11ish.craftabletridents.UpdateSystem.JoinEvent;
+import me.loving11ish.craftabletridents.UpdateSystem.UpdateChecker;
+import me.loving11ish.craftabletridents.Utils.ColorUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.PluginDescriptionFile;
@@ -40,9 +43,29 @@ public final class craftableTridents extends JavaPlugin {
 
         // Plugin startup logic
         plugin = this;
-        tridentRecipe recipe = new tridentRecipe();
-        recipe.unEnchantedRecipe();
-        recipe.enchantedRecipe();
+        getConfig().options().copyDefaults();
+        saveDefaultConfig();
+        tridentRecipe recipes = new tridentRecipe();
+        recipes.unEnchantedRecipe();
+        if (getConfig().getBoolean("Enable-OP-trident-craft")){
+            recipes.enchantedRecipe();
+        }
+
+        //Register events here
+        getServer().getPluginManager().registerEvents(new JoinEvent(this), this);
+
+        //Check for available updates
+        new UpdateChecker(this, 95032).getVersion(version -> {
+            if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
+                logger.info(ColorUtils.translateColorCodes(getConfig().getString("No-update-1")));
+                logger.info(ColorUtils.translateColorCodes(getConfig().getString("No-update-2")));
+                logger.info(ColorUtils.translateColorCodes(getConfig().getString("No-update-3")));
+            }else {
+                logger.warning(ColorUtils.translateColorCodes(getConfig().getString("Update-1")));
+                logger.warning(ColorUtils.translateColorCodes(getConfig().getString("Update-2")));
+                logger.warning(ColorUtils.translateColorCodes(getConfig().getString("Update-3")));
+            }
+        });
 
         //Plugin startup message
         logger.info("-------------------------------------------");

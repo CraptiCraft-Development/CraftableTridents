@@ -1,0 +1,43 @@
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#                                    ----[CraftableTrdents]----                                     #
+#                                     ----[By Loving11ish]----                                      #
+#                                   ----[mc.crapticraft.com]----                                    #
+#                                     ----[Plugin Config]----                                       #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#Do you want to enable the OP (enchanted) trident crafting recipe?
+####CHANGING ANY OF THIS REQUIRES A SERVER RESTART TO TAKE EFFECT!! DO NOT DO /RELOAD!!####
+Enable-OP-trident-craft: true
+
+#What name do you want the OP trident to be?
+OP-trident-name: "&6&o&nPoseidon's Staff"
+
+#Do you want to add lore to the OP trident:
+#OP-trident-lore:
+Lore-1: ""
+Lore-2: "&5This staff gives the wielder extreme power!"
+Lore-3: "&dUse wisely!"
+Lore-4: ""
+
+#Do you want the OP trident to have enchantments?
+Enable-OP-trident-enchants: true
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#                                    ----[CraftableTrdents]----                                     #
+#                                     ----[By Loving11ish]----                                      #
+#                                   ----[mc.crapticraft.com]----                                    #
+#                                 ----[Plugin Messages Config]----                                  #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#Plugin-update-available:
+Update-1: "&4*-------------------------------------------*"
+Update-2: "&bCraftableTridents &c- A new version is available!"
+Update-3: "&4*-------------------------------------------*"
+
+#Plugin-no-new-update:
+No-update-1: "&a*-------------------------------------------*"
+No-update-2: "&bCraftableTridents &a- Plugin is up to date!"
+No-update-3: "&a*-------------------------------------------*"
+Update-check-failure: "&bCraftableTridents &4- Unable to check for updates! - &c"
