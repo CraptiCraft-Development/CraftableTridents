@@ -1,6 +1,6 @@
 package me.loving11ish.craftabletridents;
 
-import me.loving11ish.craftabletridents.Recipies.tridentRecipe;
+import me.loving11ish.craftabletridents.Recipies.TridentRecipe;
 import me.loving11ish.craftabletridents.UpdateSystem.JoinEvent;
 import me.loving11ish.craftabletridents.UpdateSystem.UpdateChecker;
 import me.loving11ish.craftabletridents.Utils.ColorUtils;
@@ -23,7 +23,7 @@ public final class craftableTridents extends JavaPlugin {
         //Server version compatibility check
         if (!(Bukkit.getServer().getVersion().contains("1.13")||Bukkit.getServer().getVersion().contains("1.14")||
                 Bukkit.getServer().getVersion().contains("1.15")||Bukkit.getServer().getVersion().contains("1.16")||
-                Bukkit.getServer().getVersion().contains("1.17"))){
+                Bukkit.getServer().getVersion().contains("1.17")||Bukkit.getServer().getVersion().contains("1.18"))){
             logger.warning(ChatColor.RED + "-------------------------------------------");
             logger.warning(ChatColor.RED + "CraftableTridents - This plugin is only supported on the Minecraft versions listed below:");
             logger.warning(ChatColor.RED + "CraftableTridents - 1.13.x");
@@ -31,6 +31,7 @@ public final class craftableTridents extends JavaPlugin {
             logger.warning(ChatColor.RED + "CraftableTridents - 1.15.x");
             logger.warning(ChatColor.RED + "CraftableTridents - 1.16.x");
             logger.warning(ChatColor.RED + "CraftableTridents - 1.17.x");
+            logger.warning(ChatColor.RED + "CraftableTridents - 1.18.x");
             logger.warning(ChatColor.RED + "CraftableTridents - Is now disabling!");
             logger.warning(ChatColor.RED + "-------------------------------------------");
             Bukkit.getPluginManager().disablePlugin(plugin);
@@ -41,14 +42,16 @@ public final class craftableTridents extends JavaPlugin {
             logger.info(ChatColor.GREEN + "-------------------------------------------");
         }
 
-        // Plugin startup logic
+        //Plugin startup logic
         plugin = this;
         getConfig().options().copyDefaults();
         saveDefaultConfig();
-        tridentRecipe recipes = new tridentRecipe();
-        recipes.unEnchantedRecipe();
+
+        //Register recipes
+        TridentRecipe tridentRecipe = new TridentRecipe();
+        tridentRecipe.unEnchantedRecipe();
         if (getConfig().getBoolean("Enable-OP-trident-craft")){
-            recipes.enchantedRecipe();
+            tridentRecipe.enchantedRecipe();
         }
 
         //Register events here

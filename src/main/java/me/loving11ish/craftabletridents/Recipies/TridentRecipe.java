@@ -12,7 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 
-public class tridentRecipe {
+public class TridentRecipe {
 
     public void unEnchantedRecipe(){
         NamespacedKey key = new NamespacedKey(craftableTridents.getPlugin(), "trident");
