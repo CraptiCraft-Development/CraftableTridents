@@ -1,7 +1,7 @@
 package me.loving11ish.craftabletridents.Recipies;
 
+import me.loving11ish.craftabletridents.CraftableTridents;
 import me.loving11ish.craftabletridents.Utils.ColorUtils;
-import me.loving11ish.craftabletridents.craftableTridents;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class TridentRecipe {
 
     public void unEnchantedRecipe(){
-        NamespacedKey key = new NamespacedKey(craftableTridents.getPlugin(), "trident");
+        NamespacedKey key = new NamespacedKey(CraftableTridents.getPlugin(), "trident");
         ItemStack trident = new ItemStack(Material.TRIDENT, 1);
         ShapedRecipe craftTrident = new ShapedRecipe(key, trident);
         craftTrident.shape("DDD", "PHP", " P ");
@@ -25,18 +25,18 @@ public class TridentRecipe {
         Bukkit.addRecipe(craftTrident);
     }
     public void enchantedRecipe(){
-        NamespacedKey key = new NamespacedKey(craftableTridents.getPlugin(), "enchanted_trident");
+        NamespacedKey key = new NamespacedKey(CraftableTridents.getPlugin(), "enchanted_trident");
 
         ItemStack enchanted_trident = new ItemStack(Material.TRIDENT, 1);
         ItemMeta meta = enchanted_trident.getItemMeta();
-        meta.setDisplayName(ColorUtils.translateColorCodes(craftableTridents.getPlugin().getConfig().getString("OP-trident-name")));
+        meta.setDisplayName(ColorUtils.translateColorCodes(CraftableTridents.getPlugin().getConfig().getString("OP-trident-name")));
         ArrayList<String> lore = new ArrayList<>();
-        lore.add(ColorUtils.translateColorCodes(craftableTridents.getPlugin().getConfig().getString("Lore-1")));
-        lore.add(ColorUtils.translateColorCodes(craftableTridents.getPlugin().getConfig().getString("Lore-2")));
-        lore.add(ColorUtils.translateColorCodes(craftableTridents.getPlugin().getConfig().getString("Lore-3")));
-        lore.add(ColorUtils.translateColorCodes(craftableTridents.getPlugin().getConfig().getString("Lore-4")));
+        lore.add(ColorUtils.translateColorCodes(CraftableTridents.getPlugin().getConfig().getString("Lore-1")));
+        lore.add(ColorUtils.translateColorCodes(CraftableTridents.getPlugin().getConfig().getString("Lore-2")));
+        lore.add(ColorUtils.translateColorCodes(CraftableTridents.getPlugin().getConfig().getString("Lore-3")));
+        lore.add(ColorUtils.translateColorCodes(CraftableTridents.getPlugin().getConfig().getString("Lore-4")));
         meta.setLore(lore);
-        if (craftableTridents.getPlugin().getConfig().getBoolean("Enable-OP-trident-enchants")){
+        if (CraftableTridents.getPlugin().getConfig().getBoolean("Enable-OP-trident-enchants")){
             meta.addEnchant(Enchantment.CHANNELING, 1, false);
             meta.addEnchant(Enchantment.DURABILITY, 3, false);
             meta.addEnchant(Enchantment.MENDING, 1, false);

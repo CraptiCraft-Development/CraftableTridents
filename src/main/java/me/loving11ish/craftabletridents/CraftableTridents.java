@@ -11,9 +11,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Logger;
 
-public final class craftableTridents extends JavaPlugin {
+public final class CraftableTridents extends JavaPlugin {
 
-    public static craftableTridents plugin;
+    public static CraftableTridents plugin;
     private PluginDescriptionFile pluginInfo = getDescription();
     private String pluginVersion = pluginInfo.getVersion();
     Logger logger = this.getLogger();
@@ -90,7 +90,7 @@ public final class craftableTridents extends JavaPlugin {
         logger.info("-------------------------------------------");
     }
 
-    public static craftableTridents getPlugin() {
+    public static CraftableTridents getPlugin() {
         return plugin;
     }
 }

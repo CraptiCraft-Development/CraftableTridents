@@ -13,7 +13,7 @@
 
     <description>Add a custom recipe to your server to craft tridents.</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>11.0.13</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -40,6 +40,7 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <outputFile>/Users/mark/IdeaProjects/${project.artifactId}-${project.version}.jar</outputFile>
                         </configuration>
                     </execution>
                 </executions>
