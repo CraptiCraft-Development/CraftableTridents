@@ -20,6 +20,9 @@ public final class CraftableTridents extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        //Plugin startup logic
+        plugin = this;
+
         //Server version compatibility check
         if (!(Bukkit.getServer().getVersion().contains("1.13")||Bukkit.getServer().getVersion().contains("1.14")||
                 Bukkit.getServer().getVersion().contains("1.15")||Bukkit.getServer().getVersion().contains("1.16")||
@@ -42,8 +45,7 @@ public final class CraftableTridents extends JavaPlugin {
             logger.info(ChatColor.GREEN + "-------------------------------------------");
         }
 
-        //Plugin startup logic
-        plugin = this;
+        //Create & register config
         getConfig().options().copyDefaults();
         saveDefaultConfig();
 
