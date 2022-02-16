@@ -1,43 +1,151 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#                                    ----[CraftableTrdents]----                                     #
+#                                    ----[Craftable Trdents]----                                    #
 #                                     ----[By Loving11ish]----                                      #
-#                                   ----[mc.crapticraft.com]----                                    #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #                                     ----[Plugin Config]----                                       #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#Do you want to enable the OP (enchanted) trident crafting recipe?
-####CHANGING ANY OF THIS REQUIRES A SERVER RESTART TO TAKE EFFECT!! DO NOT DO /RELOAD!!####
-Enable-OP-trident-craft: true
+#                                    ----[Standard Trident]----                                     #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+standard-trident:
+  ####CHANGING ANY OF THIS REQUIRES A SERVER RESTART TO TAKE EFFECT!! DO NOT DO /RELOAD!!####
 
-#What name do you want the OP trident to be?
-OP-trident-name: "&6&o&nPoseidon's Staff"
+  ##This recipe does not support adding enchantments! Use the OP Trident for enchants!##
 
-#Do you want to add lore to the OP trident:
-#OP-trident-lore:
-Lore-1: ""
-Lore-2: "&5This staff gives the wielder extreme power!"
-Lore-3: "&dUse wisely!"
-Lore-4: ""
+  #Do you want to create your own recipe for the standard trident instead of the default?
+  #Use Bukkit material names in the recipes. (https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html)
+  #To add an empty space in the recipe set the slot to 'AIR'!
+  custom-recipe:
+    enabled: false
+    recipe:
+      top-row:
+        slot-1: 'DIAMOND'
+        slot-2: 'NETHERITE_INGOT'
+        slot-3: 'NETHERITE_INGOT'
+      middle-row:
+        slot-1: 'IRON_INGOT'
+        slot-2: 'PRISMARINE_SHARD'
+        slot-3: 'NETHERITE_INGOT'
+      bottom-row:
+        slot-1: 'PRISMARINE_SHARD'
+        slot-2: 'IRON_INGOT'
+        slot-3: 'DIAMOND'
 
-#Do you want the OP trident to have enchantments?
-Enable-OP-trident-enchants: true
+  #Do you want the trident to have a custom name?
+  name:
+    enabled: false
+    name: "&6Trident"
+
+  #Do you want to add lore to the trident?
+  lore:
+    enabled: false
+    lore:
+      - ""
+      - "My Custom"
+      - "Lore Here"
+      - ""
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#                                    ----[CraftableTrdents]----                                     #
-#                                     ----[By Loving11ish]----                                      #
-#                                   ----[mc.crapticraft.com]----                                    #
-#                                 ----[Plugin Messages Config]----                                  #
+#                                        ----[OP Trident]----                                       #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#Plugin-update-available:
-Update-1: "&4*-------------------------------------------*"
-Update-2: "&bCraftableTridents &c- A new version is available!"
-Update-3: "&4*-------------------------------------------*"
+op-trident:
+  #Do you want to enable the OP (enchanted) trident crafting recipe?
+  ####CHANGING ANY OF THIS REQUIRES A SERVER RESTART TO TAKE EFFECT!! DO NOT DO /RELOAD!!####
+  enabled: true
 
-#Plugin-no-new-update:
-No-update-1: "&a*-------------------------------------------*"
-No-update-2: "&bCraftableTridents &a- Plugin is up to date!"
-No-update-3: "&a*-------------------------------------------*"
-Update-check-failure: "&bCraftableTridents &4- Unable to check for updates! - &c"
+  #Do you want to create your own recipe for the OP trident instead of the default?
+  #Use Bukkit material names in the recipes. (https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html)
+  #To add an empty space in the recipe set the slot to 'AIR'!
+  custom-recipe:
+    enabled: false
+    recipe:
+      top-row:
+        slot-1: 'NETHERITE_INGOT'
+        slot-2: 'NETHERITE_INGOT'
+        slot-3: 'NETHERITE_INGOT'
+      middle-row:
+        slot-1: 'PRISMARINE_SHARD'
+        slot-2: 'HEART_OF_THE_SEA'
+        slot-3: 'PRISMARINE_SHARD'
+      bottom-row:
+        slot-1: 'NETHER_STAR'
+        slot-2: 'PRISMARINE_SHARD'
+        slot-3: 'BOOK'
+
+  #What name do you want the OP trident to be?
+  name:
+    enabled: true
+    name: "&6&o&nPoseidon's Staff"
+
+  #Do you want to add lore to the OP trident?
+  lore:
+    enabled: true
+    lore:
+      - ""
+      - "&5This staff gives the wielder extreme power!"
+      - "&dUse wisely!"
+      - ""
+
+  #Do you want the OP trident to have enchantments?
+  enchantments:
+    enabled: true
+    enchantments:
+      - channeling 1
+      - unbreaking 3
+      - mending 1
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#                                       ----[Elytra Craft]----                                      #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+elytra:
+  #Do you want to enable the elytra crafting recipe?
+  ####CHANGING ANY OF THIS REQUIRES A SERVER RESTART TO TAKE EFFECT!! DO NOT DO /RELOAD!!####
+  enabled: false
+
+  #Do you want to create your own recipe for the elytra instead of the default?
+  #Use Bukkit material names in the recipes. (https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html)
+  #To add an empty space in the recipe set the slot to 'AIR'!
+  custom-recipe:
+    enabled: false
+    recipe:
+      top-row:
+        slot-1: 'PHANTOM_MEMBRANE'
+        slot-2: 'PHANTOM_MEMBRANE'
+        slot-3: 'PHANTOM_MEMBRANE'
+      middle-row:
+        slot-1: 'LEATHER'
+        slot-2: 'NETHER_STAR'
+        slot-3: 'LEATHER'
+      bottom-row:
+        slot-1: 'PHANTOM_MEMBRANE'
+        slot-2: 'STRING'
+        slot-3: 'PHANTOM_MEMBRANE'
+
+  #What name do you want the elytra to have?
+  name:
+    enabled: true
+    name: "&d&lWings Of Gods"
+
+  #Do you want to add lore to the elytra?
+  lore:
+    enabled: true
+    lore:
+      - ""
+      - "&bThese are a true gift from the gods!"
+      - "&b&lUse with pride!"
+      - ""
+
+  #Do you want the elytra to have enchantments?
+  enchantments:
+    enabled: true
+    enchantments:
+      - protection 4
+      - thorns 3
+      - unbreaking 10
+      - mending 1

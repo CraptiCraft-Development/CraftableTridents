@@ -1,8 +1,9 @@
-package me.loving11ish.craftabletridents.UpdateSystem;
+package me.loving11ish.craftabletridents.updatesystem;
 
 import me.loving11ish.craftabletridents.CraftableTridents;
-import me.loving11ish.craftabletridents.Utils.ColorUtils;
+import me.loving11ish.craftabletridents.utils.ColorUtils;
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.util.Consumer;
 
@@ -16,6 +17,7 @@ public class UpdateChecker {
 
     private Plugin plugin;
     private int resourceId;
+    private static final FileConfiguration messagesConfig = CraftableTridents.getPlugin().messagesFileManager.getMessagesConfig();
     Logger logger = CraftableTridents.getPlugin().getLogger();
 
     public UpdateChecker(Plugin plugin, int resourceId) {
@@ -30,7 +32,7 @@ public class UpdateChecker {
                     consumer.accept(scanner.next());
                 }
             } catch (IOException exception) {
-                logger.warning(ColorUtils.translateColorCodes(CraftableTridents.getPlugin().getConfig().getString("Update-check-failure") + exception.getMessage()));
+                logger.warning(ColorUtils.translateColorCodes(messagesConfig.getString("update-check-failure") + exception.getMessage()));
             }
         });
     }

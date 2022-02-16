@@ -1,4 +1,4 @@
-package me.loving11ish.craftabletridents.Utils;
+package me.loving11ish.craftabletridents.utils;
 
 import org.bukkit.ChatColor;
 
