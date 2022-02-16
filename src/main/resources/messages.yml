@@ -16,3 +16,5 @@ no-update-1: "&a*-------------------------------------------*"
 no-update-2: "&f[&6Craftable&eTridents&f] &a- Plugin is up to date!"
 no-update-3: "&a*-------------------------------------------*"
 update-check-failure: "&f[&6Craftable&eTridents&f] &4- Unable to check for updates! - &c"
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
