@@ -30,7 +30,8 @@ public final class CraftableTridents extends JavaPlugin {
         //Server version compatibility check
         if (!(Bukkit.getServer().getVersion().contains("1.13")||Bukkit.getServer().getVersion().contains("1.14")||
                 Bukkit.getServer().getVersion().contains("1.15")||Bukkit.getServer().getVersion().contains("1.16")||
-                Bukkit.getServer().getVersion().contains("1.17")||Bukkit.getServer().getVersion().contains("1.18"))){
+                Bukkit.getServer().getVersion().contains("1.17")||Bukkit.getServer().getVersion().contains("1.18")||
+                Bukkit.getServer().getVersion().contains("1.19"))){
             logger.warning(ChatColor.RED + "-------------------------------------------");
             logger.warning(ChatColor.RED + "CraftableTridents - This plugin is only supported on the Minecraft versions listed below:");
             logger.warning(ChatColor.RED + "CraftableTridents - 1.13.x");
@@ -39,6 +40,7 @@ public final class CraftableTridents extends JavaPlugin {
             logger.warning(ChatColor.RED + "CraftableTridents - 1.16.x");
             logger.warning(ChatColor.RED + "CraftableTridents - 1.17.x");
             logger.warning(ChatColor.RED + "CraftableTridents - 1.18.x");
+            logger.warning(ChatColor.RED + "CraftableTridents - 1.19.x");
             logger.warning(ChatColor.RED + "CraftableTridents - Is now disabling!");
             logger.warning(ChatColor.RED + "-------------------------------------------");
             Bukkit.getPluginManager().disablePlugin(this);
