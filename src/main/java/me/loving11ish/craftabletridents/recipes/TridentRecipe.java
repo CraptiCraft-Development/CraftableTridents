@@ -16,7 +16,7 @@ import java.util.List;
 
 public class TridentRecipe {
 
-    private static final FileConfiguration configFile = CraftableTridents.getPlugin().getConfig();
+    FileConfiguration configFile = CraftableTridents.getPlugin().getConfig();
 
     public void unEnchantedRecipe(){
         NamespacedKey key = new NamespacedKey(CraftableTridents.getPlugin(), "trident");
@@ -35,6 +35,8 @@ public class TridentRecipe {
             tridentMeta.setLore(tridentLore);
         }
         trident.setItemMeta(tridentMeta);
+
+        CraftableTridents.getPlugin().setTridentItem(trident);
 
         ShapedRecipe craftTrident = new ShapedRecipe(key, trident);
         if (configFile.getBoolean("standard-trident.custom-recipe.enabled")){
@@ -85,6 +87,8 @@ public class TridentRecipe {
             }
         }
         enchanted_trident.setItemMeta(meta);
+
+        CraftableTridents.getPlugin().setOpTridentItem(enchanted_trident);
 
         ShapedRecipe craftEnchantedTrident = new ShapedRecipe(key, enchanted_trident);
         if (configFile.getBoolean("op-trident.custom-recipe.enabled")){

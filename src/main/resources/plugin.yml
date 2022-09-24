@@ -4,3 +4,7 @@ main: me.loving11ish.craftabletridents.CraftableTridents
 api-version: 1.13
 authors: [ Loving11ish ]
 description: Adds custom recipes to your server to craft tridents.
+
+permissions:
+  ct.update:
+    default: op

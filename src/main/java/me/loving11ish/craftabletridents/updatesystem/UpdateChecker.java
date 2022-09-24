@@ -17,7 +17,7 @@ public class UpdateChecker {
 
     private Plugin plugin;
     private int resourceId;
-    private static final FileConfiguration messagesConfig = CraftableTridents.getPlugin().messagesFileManager.getMessagesConfig();
+    FileConfiguration messagesConfig = CraftableTridents.getPlugin().messagesFileManager.getMessagesConfig();
     Logger logger = CraftableTridents.getPlugin().getLogger();
 
     public UpdateChecker(Plugin plugin, int resourceId) {

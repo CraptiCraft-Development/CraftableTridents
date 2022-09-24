@@ -1,5 +1,6 @@
 package me.loving11ish.craftabletridents;
 
+import me.loving11ish.craftabletridents.events.ItemCraftListener;
 import me.loving11ish.craftabletridents.files.MessagesFileManager;
 import me.loving11ish.craftabletridents.recipes.ElytraRecipe;
 import me.loving11ish.craftabletridents.recipes.TridentRecipe;
@@ -8,6 +9,7 @@ import me.loving11ish.craftabletridents.updatesystem.UpdateChecker;
 import me.loving11ish.craftabletridents.utils.ColorUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -21,6 +23,10 @@ public final class CraftableTridents extends JavaPlugin {
     Logger logger = this.getLogger();
 
     public MessagesFileManager messagesFileManager;
+
+    public ItemStack tridentItem;
+    public ItemStack opTridentItem;
+    public ItemStack elytraItem;
 
     @Override
     public void onEnable() {
@@ -44,6 +50,7 @@ public final class CraftableTridents extends JavaPlugin {
             logger.warning(ChatColor.RED + "CraftableTridents - Is now disabling!");
             logger.warning(ChatColor.RED + "-------------------------------------------");
             Bukkit.getPluginManager().disablePlugin(this);
+            return;
         }else {
             logger.info(ChatColor.GREEN + "-------------------------------------------");
             logger.info(ChatColor.GREEN + "CraftableTridents - A supported Minecraft version has been detected");
@@ -77,6 +84,7 @@ public final class CraftableTridents extends JavaPlugin {
 
         //Register events here
         getServer().getPluginManager().registerEvents(new JoinEvent(this), this);
+        getServer().getPluginManager().registerEvents(new ItemCraftListener(), this);
 
         //Check for available updates
         new UpdateChecker(this, 95032).getVersion(version -> {
@@ -113,5 +121,29 @@ public final class CraftableTridents extends JavaPlugin {
 
     public static CraftableTridents getPlugin() {
         return plugin;
+    }
+
+    public ItemStack getTridentItem() {
+        return tridentItem;
+    }
+
+    public void setTridentItem(ItemStack tridentItem) {
+        this.tridentItem = tridentItem;
+    }
+
+    public ItemStack getOpTridentItem() {
+        return opTridentItem;
+    }
+
+    public void setOpTridentItem(ItemStack opTridentItem) {
+        this.opTridentItem = opTridentItem;
+    }
+
+    public ItemStack getElytraItem() {
+        return elytraItem;
+    }
+
+    public void setElytraItem(ItemStack elytraItem) {
+        this.elytraItem = elytraItem;
     }
 }

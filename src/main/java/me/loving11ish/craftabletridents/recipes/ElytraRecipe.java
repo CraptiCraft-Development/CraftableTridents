@@ -16,7 +16,7 @@ import java.util.List;
 
 public class ElytraRecipe {
 
-    private static final FileConfiguration configFile = CraftableTridents.getPlugin().getConfig();
+    FileConfiguration configFile = CraftableTridents.getPlugin().getConfig();
 
     public void elytraRecipe(){
         NamespacedKey key = new NamespacedKey(CraftableTridents.getPlugin(), "elytra");
@@ -42,6 +42,8 @@ public class ElytraRecipe {
             }
         }
         elytra.setItemMeta(elytraMeta);
+
+        CraftableTridents.getPlugin().setElytraItem(elytra);
 
         ShapedRecipe craftElytra = new ShapedRecipe(key, elytra);
         if (configFile.getBoolean("elytra.custom-recipe.enabled")){

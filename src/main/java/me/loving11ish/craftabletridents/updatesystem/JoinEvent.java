@@ -11,7 +11,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 public class JoinEvent implements Listener {
 
     CraftableTridents plugin;
-    private static final FileConfiguration messagesConfig = CraftableTridents.getPlugin().messagesFileManager.getMessagesConfig();
+    FileConfiguration messagesConfig = CraftableTridents.getPlugin().messagesFileManager.getMessagesConfig();
 
     public JoinEvent(CraftableTridents plugin) {
         this.plugin = plugin;

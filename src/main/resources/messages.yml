@@ -1,11 +1,18 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#                                    ----[Craftable Trdents]----                                    #
+#                                    ----[CraftableTrdents]----                                     #
 #                                     ----[By Loving11ish]----                                      #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #                                 ----[Plugin Messages Config]----                                  #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#Message config file for ${project.version}
+
+#Denied crafting messages
+trident-no-permission: "&cSorry, you do not have permission to craft that!"
+op-trident-no-permission: "&cSorry, you do not have permission to craft that!"
+elytra-no-permission: "&cSorry, you do not have permission to craft that!"
+
 #Plugin-update-available:
 update-1: "&4*-------------------------------------------*"
 update-2: "&f[&6Craftable&eTridents&f] &c- A new version is available!"
