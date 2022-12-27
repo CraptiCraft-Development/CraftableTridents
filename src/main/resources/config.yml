@@ -153,3 +153,53 @@ elytra:
       - mending 1
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#                               ----[Enchanted Golden Apple Craft]----                              #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+god-apple:
+  #Do you want to enable the god apple crafting recipe?
+  ####CHANGING ANY OF THIS REQUIRES A SERVER RESTART TO TAKE EFFECT!! DO NOT DO /RELOAD!!####
+  enabled: false
+
+  #Do you want to create your own recipe for the god apple instead of the default?
+  #Use Bukkit material names in the recipes. (https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html)
+  #To add an empty space in the recipe set the slot to 'AIR'!
+  custom-recipe:
+    enabled: false
+    recipe:
+      top-row:
+        slot-1: 'GOLD_BLOCK'
+        slot-2: 'GOLD_BLOCK'
+        slot-3: 'GOLD_BLOCK'
+      middle-row:
+        slot-1: 'NETHER_STAR'
+        slot-2: 'GOLDEN_APPLE'
+        slot-3: 'NETHER_STAR'
+      bottom-row:
+        slot-1: 'GOLD_BLOCK'
+        slot-2: 'GOLD_BLOCK'
+        slot-3: 'GOLD_BLOCK'
+
+  #What name do you want the god apple to have?
+  name:
+    enabled: true
+    name: "&d&lApple Of The Gods"
+
+  #Do you want to add lore to the god apple?
+  lore:
+    enabled: true
+    lore:
+      - ""
+      - "&bThis is a legendary item"
+      - "&b&lUse it sparingly!"
+      - ""
+
+  #Do you want the god apple to have enchantments?
+  enchantments:
+    enabled: false
+    enchantments:
+      - sharpness 5
+      - knockback 2
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#

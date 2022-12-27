@@ -3,6 +3,7 @@ package me.loving11ish.craftabletridents;
 import me.loving11ish.craftabletridents.events.ItemCraftListener;
 import me.loving11ish.craftabletridents.files.MessagesFileManager;
 import me.loving11ish.craftabletridents.recipes.ElytraRecipe;
+import me.loving11ish.craftabletridents.recipes.GodAppleRecipe;
 import me.loving11ish.craftabletridents.recipes.TridentRecipe;
 import me.loving11ish.craftabletridents.updatesystem.JoinEvent;
 import me.loving11ish.craftabletridents.updatesystem.UpdateChecker;
@@ -27,6 +28,7 @@ public final class CraftableTridents extends JavaPlugin {
     public ItemStack tridentItem;
     public ItemStack opTridentItem;
     public ItemStack elytraItem;
+    public ItemStack enchantedGoldenApple;
 
     @Override
     public void onEnable() {
@@ -69,6 +71,7 @@ public final class CraftableTridents extends JavaPlugin {
         //Register recipes
         TridentRecipe tridentRecipe = new TridentRecipe();
         ElytraRecipe elytraRecipe = new ElytraRecipe();
+        GodAppleRecipe godAppleRecipe = new GodAppleRecipe();
         tridentRecipe.unEnchantedRecipe();
         logger.info("-------------------------------------------");
         logger.info(ChatColor.AQUA + "CraftableTridents - Standard Trident Recipe Loaded!");
@@ -79,6 +82,10 @@ public final class CraftableTridents extends JavaPlugin {
         if (getConfig().getBoolean("elytra.enabled")){
             elytraRecipe.elytraRecipe();
             logger.info(ChatColor.AQUA + "CraftableTridents - Elytra Recipe Loaded!");
+        }
+        if (getConfig().getBoolean("god-apple.enabled")){
+            godAppleRecipe.godAppleRecipe();
+            logger.info(ChatColor.AQUA + "CraftableTridents - Enchanted Golden Apple Recipe Loaded!");
         }
         logger.info("-------------------------------------------");
 
@@ -102,7 +109,7 @@ public final class CraftableTridents extends JavaPlugin {
         //Plugin startup message
         logger.info(ChatColor.AQUA + "CraftableTridents - Plugin By Loving11ish");
         logger.info(ChatColor.AQUA + "CraftableTridents - has been loaded successfully!");
-        logger.info(ChatColor.AQUA + "CraftableTridents - Plugin Version " + pluginVersion);
+        logger.info(ChatColor.AQUA + "CraftableTridents - Plugin Version " + ChatColor.LIGHT_PURPLE + pluginVersion);
         logger.info("-------------------------------------------");
     }
 
@@ -145,5 +152,13 @@ public final class CraftableTridents extends JavaPlugin {
 
     public void setElytraItem(ItemStack elytraItem) {
         this.elytraItem = elytraItem;
+    }
+
+    public ItemStack getEnchantedGoldenApple() {
+        return enchantedGoldenApple;
+    }
+
+    public void setEnchantedGoldenApple(ItemStack enchantedGoldenApple) {
+        this.enchantedGoldenApple = enchantedGoldenApple;
     }
 }

@@ -60,4 +60,20 @@ public class ItemCraftListener implements Listener {
             player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("elytra-no-permission")));
         }
     }
+
+    @EventHandler (priority = EventPriority.HIGHEST)
+    public void onGodAppleItemCraft(CraftItemEvent event){
+        if (!(event.getWhoClicked() instanceof Player)){
+            return;
+        }
+        if (!(event.getRecipe().getResult().equals(CraftableTridents.getPlugin().getEnchantedGoldenApple()))){
+            return;
+        }
+        Player player = (Player) event.getWhoClicked();
+        if (!(player.hasPermission("ct.craft.godapple")||player.hasPermission("ct.craft.*")
+                ||player.hasPermission("ct.craft")||player.hasPermission("ct.*")||player.isOp())){
+            event.setCancelled(true);
+            player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("god-apple-no-permission")));
+        }
+    }
 }

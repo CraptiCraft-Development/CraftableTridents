@@ -12,6 +12,7 @@
 trident-no-permission: "&cSorry, you do not have permission to craft that!"
 op-trident-no-permission: "&cSorry, you do not have permission to craft that!"
 elytra-no-permission: "&cSorry, you do not have permission to craft that!"
+god-apple-no-permission: "&cSorry, you do not have permission to craft that!"
 
 #Plugin-update-available:
 update-1: "&4*-------------------------------------------*"
