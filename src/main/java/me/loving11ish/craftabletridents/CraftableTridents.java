@@ -1,5 +1,8 @@
 package me.loving11ish.craftabletridents;
 
+import com.rylinaux.plugman.api.PlugManAPI;
+import com.tcoded.folialib.FoliaLib;
+import io.papermc.lib.PaperLib;
 import me.loving11ish.craftabletridents.events.ItemCraftListener;
 import me.loving11ish.craftabletridents.files.MessagesFileManager;
 import me.loving11ish.craftabletridents.recipes.ElytraRecipe;
@@ -19,6 +22,7 @@ import java.util.logging.Logger;
 public final class CraftableTridents extends JavaPlugin {
 
     public static CraftableTridents plugin;
+    public static FoliaLib foliaLib;
     private PluginDescriptionFile pluginInfo = getDescription();
     private String pluginVersion = pluginInfo.getVersion();
     Logger logger = this.getLogger();
@@ -28,12 +32,13 @@ public final class CraftableTridents extends JavaPlugin {
     public ItemStack tridentItem;
     public ItemStack opTridentItem;
     public ItemStack elytraItem;
-    public ItemStack enchantedGoldenApple;
+    public ItemStack enchantedGoldenAppleItem;
 
     @Override
     public void onEnable() {
         //Plugin startup logic
         plugin = this;
+        foliaLib = new FoliaLib(this);
 
         //Server version compatibility check
         if (!(Bukkit.getServer().getVersion().contains("1.13")||Bukkit.getServer().getVersion().contains("1.14")||
@@ -58,6 +63,45 @@ public final class CraftableTridents extends JavaPlugin {
             logger.info(ChatColor.GREEN + "CraftableTridents - A supported Minecraft version has been detected");
             logger.info(ChatColor.GREEN + "CraftableTridents - Continuing plugin startup");
             logger.info(ChatColor.GREEN + "-------------------------------------------");
+        }
+
+        //Suggest PaperMC if not using
+        if (foliaLib.isUnsupported()||foliaLib.isSpigot()){
+            PaperLib.suggestPaper(this);
+        }
+
+        //Check if PlugManX is enabled
+        if (isPlugManXEnabled() || getServer().getPluginManager().isPluginEnabled("PlugManX")){
+            if (!PlugManAPI.iDoNotWantToBeUnOrReloaded("CraftableTridents")){
+                logger.severe(ColorUtils.translateColorCodes("&c-------------------------------------------"));
+                logger.severe(ColorUtils.translateColorCodes("&c-------------------------------------------"));
+                logger.severe(ColorUtils.translateColorCodes("&4WARNING WARNING WARNING WARNING!"));
+                logger.severe(ColorUtils.translateColorCodes("&c-------------------------------------------"));
+                logger.severe(ColorUtils.translateColorCodes("&bCraftableTridents: &4You appear to be using an unsupported version of &d&lPlugManX"));
+                logger.severe(ColorUtils.translateColorCodes("&bCraftableTridents: &4Please &4&lDO NOT USE PLUGMANX TO LOAD/UNLOAD/RELOAD THIS PLUGIN!"));
+                logger.severe(ColorUtils.translateColorCodes("&bCraftableTridents: &4Please &4&lFULLY RESTART YOUR SERVER!"));
+                logger.severe(ColorUtils.translateColorCodes("&c-------------------------------------------"));
+                logger.severe(ColorUtils.translateColorCodes("&bCraftableTridents: &4This plugin &4&lHAS NOT &4been validated to use this version of PlugManX!"));
+                logger.severe(ColorUtils.translateColorCodes("&bCraftableTridents: &4&lNo official support will be given to you if you use this!"));
+                logger.severe(ColorUtils.translateColorCodes("&bCraftableTridents: &4&lUnless Loving11ish has explicitly agreed to help!"));
+                logger.severe(ColorUtils.translateColorCodes("&bCraftableTridents: &4Please add CraftableTridents to the ignored-plugins list in PlugManX's config.yml"));
+                logger.severe(ColorUtils.translateColorCodes("&c-------------------------------------------"));
+                logger.severe(ColorUtils.translateColorCodes("&bCraftableTridents: &6Continuing plugin startup"));
+                logger.severe(ColorUtils.translateColorCodes("&c-------------------------------------------"));
+                logger.severe(ColorUtils.translateColorCodes("&c-------------------------------------------"));
+            }else {
+                logger.info(ColorUtils.translateColorCodes("&a-------------------------------------------"));
+                logger.info(ColorUtils.translateColorCodes("&bCraftableTridents: &aSuccessfully hooked into PlugManX"));
+                logger.info(ColorUtils.translateColorCodes("&bCraftableTridents: &aSuccessfully added CraftableTridents to ignoredPlugins list."));
+                logger.info(ColorUtils.translateColorCodes("&bCraftableTridents: &6Continuing plugin startup"));
+                logger.info(ColorUtils.translateColorCodes("&a-------------------------------------------"));
+            }
+        }else {
+            logger.info(ColorUtils.translateColorCodes("-------------------------------------------"));
+            logger.info(ColorUtils.translateColorCodes("&bCraftableTridents: &cPlugManX not found!"));
+            logger.info(ColorUtils.translateColorCodes("&bCraftableTridents: &cDisabling PlugManX hook loader"));
+            logger.info(ColorUtils.translateColorCodes("&bCraftableTridents: &6Continuing plugin startup"));
+            logger.info(ColorUtils.translateColorCodes("-------------------------------------------"));
         }
 
         //Create & register config
@@ -94,7 +138,7 @@ public final class CraftableTridents extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ItemCraftListener(), this);
 
         //Check for available updates
-        new UpdateChecker(this, 95032).getVersion(version -> {
+        new UpdateChecker(95032).getVersion(version -> {
             if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
                 logger.info(ColorUtils.translateColorCodes(messagesFileManager.getMessagesConfig().getString("no-update-1")));
                 logger.info(ColorUtils.translateColorCodes(messagesFileManager.getMessagesConfig().getString("no-update-2")));
@@ -115,19 +159,55 @@ public final class CraftableTridents extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        //Plugin shutdown logic
         Bukkit.clearRecipes();
+
+        //Stop any running tasks
         logger.info("-------------------------------------------");
+        try {
+            if (foliaLib.isUnsupported()){
+                Bukkit.getScheduler().cancelTasks(this);
+                logger.info(ChatColor.AQUA + "CraftableTridents - All background task disabled.");
+            }
+        }catch (Exception e){
+            logger.info(ChatColor.AQUA + "CraftableTridents - All background task disabled.");
+        }
         logger.info(ChatColor.AQUA + "CraftableTridents - All recipes unregistered!");
 
         //Plugin shutdown message
         logger.info(ChatColor.AQUA + "CraftableTridents - Plugin By Loving11ish");
         logger.info(ChatColor.AQUA + "CraftableTridents - has been disabled successfully!");
         logger.info("-------------------------------------------");
+
+        //Clear any plugin remains
+        tridentItem = null;
+        opTridentItem = null;
+        elytraItem = null;
+        enchantedGoldenAppleItem = null;
+        messagesFileManager = null;
+        foliaLib = null;
+        plugin = null;
+    }
+
+    public boolean isPlugManXEnabled() {
+        try {
+            Class.forName("com.rylinaux.plugman.PlugMan");
+            logger.info(ColorUtils.translateColorCodes("&bCraftableTridents: &aFound PlugManX main class at:"));
+            logger.info(ColorUtils.translateColorCodes("&bCraftableTridents: &dcom.rylinaux.plugman.PlugMan"));
+            return true;
+        }catch (ClassNotFoundException e){
+            logger.info(ColorUtils.translateColorCodes("&bCraftableTridents: &aCould not find PlugManX main class at:"));
+            logger.info(ColorUtils.translateColorCodes("&bCraftableTridents: &dcom.rylinaux.plugman.PlugMan"));
+            return false;
+        }
     }
 
     public static CraftableTridents getPlugin() {
         return plugin;
+    }
+
+    public static FoliaLib getFoliaLib() {
+        return foliaLib;
     }
 
     public ItemStack getTridentItem() {
@@ -154,11 +234,11 @@ public final class CraftableTridents extends JavaPlugin {
         this.elytraItem = elytraItem;
     }
 
-    public ItemStack getEnchantedGoldenApple() {
-        return enchantedGoldenApple;
+    public ItemStack getEnchantedGoldenAppleItem() {
+        return enchantedGoldenAppleItem;
     }
 
-    public void setEnchantedGoldenApple(ItemStack enchantedGoldenApple) {
-        this.enchantedGoldenApple = enchantedGoldenApple;
+    public void setEnchantedGoldenAppleItem(ItemStack enchantedGoldenAppleItem) {
+        this.enchantedGoldenAppleItem = enchantedGoldenAppleItem;
     }
 }

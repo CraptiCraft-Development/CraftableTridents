@@ -66,7 +66,7 @@ public class ItemCraftListener implements Listener {
         if (!(event.getWhoClicked() instanceof Player)){
             return;
         }
-        if (!(event.getRecipe().getResult().equals(CraftableTridents.getPlugin().getEnchantedGoldenApple()))){
+        if (!(event.getRecipe().getResult().equals(CraftableTridents.getPlugin().getEnchantedGoldenAppleItem()))){
             return;
         }
         Player player = (Player) event.getWhoClicked();

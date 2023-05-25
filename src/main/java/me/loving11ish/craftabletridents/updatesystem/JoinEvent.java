@@ -21,7 +21,7 @@ public class JoinEvent implements Listener {
     public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         if (player.hasPermission("ct.update")) {
-            new UpdateChecker(plugin, 95032).getVersion(version -> {
+            new UpdateChecker(95032).getVersion(version -> {
                 try {
                     if (!(plugin.getDescription().getVersion().equalsIgnoreCase(version))) {
                         player.sendMessage(ColorUtils.translateColorCodes(messagesConfig.getString("update-1")));

@@ -2,6 +2,7 @@ name: CraftableTridents
 version: ${project.version}
 main: me.loving11ish.craftabletridents.CraftableTridents
 api-version: 1.13
+folia-supported: true
 authors: [ Loving11ish ]
 description: Adds custom recipes to your server to craft tridents.
 

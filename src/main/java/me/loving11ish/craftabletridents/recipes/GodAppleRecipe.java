@@ -43,7 +43,7 @@ public class GodAppleRecipe {
         }
         enchantedGoldenApple.setItemMeta(enchantedGoldenAppleMeta);
 
-        CraftableTridents.getPlugin().setEnchantedGoldenApple(enchantedGoldenApple);
+        CraftableTridents.getPlugin().setEnchantedGoldenAppleItem(enchantedGoldenApple);
 
         ShapedRecipe craftEnchantedGoldenApple = new ShapedRecipe(key, enchantedGoldenApple);
         if (configFile.getBoolean("god-apple.custom-recipe.enabled")){
