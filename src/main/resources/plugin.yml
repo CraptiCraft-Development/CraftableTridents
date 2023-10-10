@@ -5,7 +5,29 @@ api-version: 1.13
 folia-supported: true
 authors: [ Loving11ish ]
 description: Adds custom recipes to your server to craft tridents.
+website: https://www.spigotmc.org/resources/craftabletridents-1-20-1-support.95032/
 
 permissions:
-  ct.update:
+  ct.*:
     default: op
+    description: "This is the main permission to use all plugin functions."
+    children:
+      ct.update:
+        default: op
+        description: "This node allows seeing of in game plugin update notifications."
+      ct.craft.*:
+        default: op
+        description: "This node allows crafting of ALL plugin recipes."
+        children:
+          ct.craft.trident:
+            default: op
+            description: "This node allows crafting of the standard Trident recipe."
+          ct.craft.op-trident:
+            default: op
+            description: "This node allows crafting of the OP Trident recipe."
+          ct.craft.elytra:
+            default: op
+            description: "This node allows crafting of the elytra recipe."
+          ct.craft.godapple:
+            default: op
+            description: "This node allows crafting of the Enchanted Golden Apple recipe."

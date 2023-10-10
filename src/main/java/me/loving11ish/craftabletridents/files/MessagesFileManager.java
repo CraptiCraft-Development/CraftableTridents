@@ -2,6 +2,8 @@ package me.loving11ish.craftabletridents.files;
 
 import me.loving11ish.craftabletridents.CraftableTridents;
 import me.loving11ish.craftabletridents.utils.ColorUtils;
+import org.bukkit.Bukkit;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -9,15 +11,14 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.logging.Logger;
 
 public class MessagesFileManager {
+
+    ConsoleCommandSender console = Bukkit.getConsoleSender();
 
     private CraftableTridents plugin;
     private FileConfiguration dataConfig = null;
     private File configFile = null;
-
-    Logger logger = CraftableTridents.getPlugin().getLogger();
 
     public void MessagesFileManager(CraftableTridents plugin){
         this.plugin = plugin;
@@ -50,8 +51,8 @@ public class MessagesFileManager {
         try {
             this.getMessagesConfig().save(this.configFile);
         }catch (IOException e){
-            logger.severe(ColorUtils.translateColorCodes("&f[&6Craftable&eTridents&f] - &4Could not save messages.yml"));
-            logger.severe(ColorUtils.translateColorCodes("&f[&6Craftable&eTridents&f] - &4Check the below message for the reasons!"));
+            console.sendMessage(ColorUtils.translateColorCodes("&f[&6Craftable&eTridents&f] - &4Could not save messages.yml"));
+            console.sendMessage(ColorUtils.translateColorCodes("&f[&6Craftable&eTridents&f] - &4Check the below message for the reasons!"));
             e.printStackTrace();
         }
     }
