@@ -4,12 +4,12 @@ import com.tcoded.folialib.FoliaLib;
 import me.loving11ish.craftabletridents.CraftableTridents;
 import me.loving11ish.craftabletridents.utils.ColorUtils;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.util.Consumer;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Scanner;
+import java.util.function.Consumer;
 import java.util.logging.Logger;
 
 public class UpdateChecker {
